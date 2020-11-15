@@ -1,5 +1,5 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
 .root {
   position: relative;
@@ -9,7 +9,6 @@
 .wrapper {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 960px;
   padding: 1em;
   display: flex;
 

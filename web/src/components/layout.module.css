@@ -1,5 +1,5 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
 .content {
   background: var(--color-white);
@@ -8,6 +8,7 @@
   @media (--media-min-small) {
     min-height: calc(100% - 88px - 150px);
   }
+  display: flex;
 }
 
 .footer {

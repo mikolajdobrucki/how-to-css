@@ -1,0 +1,31 @@
+@import "../styles/custom-media.css";
+
+.root {
+  box-sizing: border-box;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 1.5em;
+  color: seagreen;
+  border: 1px solid seagreen;
+  display: flex;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+}
+
+.canvas {
+  padding: 1em;
+  border: 1px solid salmon;
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+}
+
+.flexItem {
+  width: 120px;
+  height: 120px;
+  border: 1px solid salmon;
+  margin: 1em;
+}
