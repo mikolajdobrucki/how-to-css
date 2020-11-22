@@ -20,6 +20,9 @@ export const query = graphql`
 function IndexPage (props) {
   const [alignItems, setAlignItems] = useState('center')
   const [justifyContent, setJustifyContent] = useState('center')
+  const [alignContent, setAlignContent] = useState('center')
+  const [flexDirection, setFlexDirection] = useState('row')
+  const [flexWrap, setFlexWrap] = useState('nowrap')
 
   const {data, errors} = props
 
@@ -48,17 +51,51 @@ function IndexPage (props) {
           state={alignItems}
           title='align-items'
           id='alignItems'
-          values={['center', 'flex-start', 'flex-end']}
+          values={['center', 'flex-start', 'flex-end', 'stretch', 'baseline']}
         />
         <Controller
           onChange={value => setJustifyContent(value)}
           state={justifyContent}
           title='justify-content'
           id='justifyContent'
-          values={['center', 'flex-start', 'flex-end']}
+          values={[
+            'center',
+            'flex-start',
+            'flex-end',
+            'space-between',
+            'space-around',
+            'space-evenly'
+          ]}
+        />
+        <Controller
+          onChange={value => setAlignContent(value)}
+          state={alignContent}
+          title='align-content'
+          id='alignContent'
+          values={['center', 'flex-start', 'flex-end', 'stretch', 'space-between', 'space-around']}
+        />
+        <Controller
+          onChange={value => setFlexDirection(value)}
+          state={flexDirection}
+          title='flex-direction'
+          id='flexDirection'
+          values={['row', 'column', 'row-reverse', 'column-reverse']}
+        />
+        <Controller
+          onChange={value => setFlexWrap(value)}
+          state={flexWrap}
+          title='flex-wrap'
+          id='flexWrap'
+          values={['nowrap', 'wrap', 'wrap-reverse']}
         />
       </Sidebar>
-      <Main justifyContent={justifyContent} alignItems={alignItems} />
+      <Main
+        justifyContent={justifyContent}
+        alignItems={alignItems}
+        alignContent={alignContent}
+        flexDirection={flexDirection}
+        flexWrap={flexWrap}
+      />
     </Layout>
   )
 }

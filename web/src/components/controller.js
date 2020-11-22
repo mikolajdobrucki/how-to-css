@@ -5,7 +5,7 @@ import styles from './controller.module.css'
 const Controller = props => {
   return (
     <div className={styles.root}>
-      <h3>{props.title}</h3>
+      <h3 className={styles.title}>{props.title}</h3>
       {props.values.map((value) => (
         <div className='input' key={value}>
           <label>
