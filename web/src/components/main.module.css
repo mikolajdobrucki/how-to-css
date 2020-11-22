@@ -24,8 +24,15 @@
 }
 
 .flexItem {
-  width: 120px;
-  height: 120px;
   border: 1px solid salmon;
   margin: 1em;
+}
+
+.flexItemSelected {
+  border-width: 3px;
+}
+
+.button {
+  width: 100px;
+  height: 100px;
 }
