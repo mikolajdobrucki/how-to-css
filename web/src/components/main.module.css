@@ -21,6 +21,7 @@
   height: 640px;
   margin: auto;
   display: flex;
+  position: relative;
 }
 
 .flexItem {
@@ -44,4 +45,14 @@
   width: 100px;
   height: 100px;
   margin: 1em;
+}
+
+
+.canvasNav {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

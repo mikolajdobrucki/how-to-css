@@ -23,6 +23,8 @@ const Main = props => {
     new Block(150)
   ])
 
+  const [scale, setScale] = useState(1)
+
   const {alignItems, justifyContent, alignContent, flexDirection, flexWrap} = props
 
   console.log(blocks)
@@ -80,13 +82,14 @@ const Main = props => {
         {blocks.map(block => (
           <div
             className={cx(styles.flexItem, {[styles.flexItemSelected]: block.selected})}
-            style={{flexBasis: block.flexBasis, flexGrow: block.flexGrow, flexShrink: block.flexShrink, alignSelf: block.alignSelf}}
+            style={{flexBasis: block.flexBasis * scale, flexGrow: block.flexGrow, flexShrink: block.flexShrink, alignSelf: block.alignSelf}}
             key={blocks.indexOf(block)}
           >
             <ul className={styles.flexItem__list}>
               <li>align-self: {block.alignSelf}</li>
               <li>flex-grow: {block.flexGrow}</li>
               <li>flex-shrink: {block.flexShrink}</li>
+              <li>flex-basis: {block.flexBasis}</li>
             </ul>
             <button onClick={() => selectItem(blocks.indexOf(block))}>Edit</button>
             <button onClick={() => destroyItem(blocks.indexOf(block))}>Delete</button>
@@ -98,6 +101,11 @@ const Main = props => {
         >
           +
         </button>
+        <div className={styles.canvasNav}>
+          <button onClick={() => setScale(scale + 0.2)}>+</button>
+          <button onClick={() => setScale(scale - 0.2)}>-</button>
+          <button>get code</button>
+        </div>
       </div>
       {activeItem + 1 && (
         <Sidebar>
@@ -121,6 +129,13 @@ const Main = props => {
             title='flex-shrink'
             id='flexShrink'
             values={[0, 1, 2, 3]}
+          />
+          <Controller
+            onChange={value => changeProperty('flexBasis', value, activeItem)}
+            state={blocks[activeItem].flexBasis}
+            title='flex-basis'
+            id='flexBasis'
+            type='range'
           />
         </Sidebar>
       )}
