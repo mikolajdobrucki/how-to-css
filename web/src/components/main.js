@@ -4,6 +4,7 @@ import Controller from '../components/controller'
 import cx from 'classnames'
 
 import styles from './main.module.css'
+import {Button} from '@sanity/ui'
 
 class Block {
   constructor (flexBasis) {
@@ -91,8 +92,8 @@ const Main = props => {
               <li>flex-shrink: {block.flexShrink}</li>
               <li>flex-basis: {block.flexBasis}</li>
             </ul>
-            <button onClick={() => selectItem(blocks.indexOf(block))}>Edit</button>
-            <button onClick={() => destroyItem(blocks.indexOf(block))}>Delete</button>
+            <Button onClick={() => selectItem(blocks.indexOf(block))} icon='edit' aria-label='edit' mode='bleed' />
+            <Button onClick={() => destroyItem(blocks.indexOf(block))} icon='trash' aria-label='delete' mode='bleed' tone='critical  ' />
           </div>
         ))}
         <button
@@ -104,7 +105,7 @@ const Main = props => {
         <div className={styles.canvasNav}>
           <button onClick={() => setScale(scale + 0.2)}>+</button>
           <button onClick={() => setScale(scale - 0.2)}>-</button>
-          <button>get code</button>
+          <Button text='get code' tone='brand' />
         </div>
       </div>
       {activeItem + 1 && (
