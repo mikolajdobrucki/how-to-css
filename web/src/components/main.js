@@ -110,6 +110,9 @@ const Main = props => {
       </div>
       {activeItem + 1 && (
         <Sidebar>
+        <Footer>
+          <Text size={1}>built with <a href='https://www.sanity.io'>Sanity</a> &amp; <a href='https://www.design.sanity.io'>Sanity UI</a></Text>
+        </Footer>
           <Controller
             onChange={value => changeProperty('alignSelf', value, activeItem)}
             state={blocks[activeItem].alignSelf}
