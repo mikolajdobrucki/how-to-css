@@ -2,13 +2,5 @@
 
 .root {
   box-sizing: border-box;
-  flex-basis: 289px;
-  padding: 1.5em;
-  margin: 0;
-  color: tomato;
-  border: 1px solid tomato;
-
-  @media (--media-min-small) {
-    padding: 2em;
-  }
+  flex-basis: 352px;
 }
