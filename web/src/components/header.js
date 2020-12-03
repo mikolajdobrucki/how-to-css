@@ -5,11 +5,18 @@ import {cn} from '../lib/helpers'
 
 import styles from './header.module.css'
 
+import Logo from './graphic/logo'
+import {Flex, Text, Card} from '@sanity/ui'
+
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <div className={styles.branding}>
-        <Link to='/'>{siteTitle}</Link>
+        <Card><Flex align='center'>
+          <Logo />
+          <Link to='/'><Text weight='semibold' size={2}>{siteTitle}</Text></Link>
+          <Text muted>the flexbox tool you still unfortunately need</Text>
+        </Flex></Card>
       </div>
 
       <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
