@@ -23,12 +23,8 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
         <Icon symbol='hamburger' />
       </button>
 
-      <nav className={cn(styles.nav, showNav && styles.showNav)}>
-        <ul>
-          <li>
-            <Link to='/archive/'>Archive</Link>
-          </li>
-        </ul>
+      <nav>
+        <a className="github-button" href="https://github.com/mikolajdobrucki/how-to-css" data-size="large" data-show-count="true" aria-label="Star mikolajdobrucki/how-to-css on GitHub">Star</a>
       </nav>
     </div>
   </div>
