@@ -1,10 +1,21 @@
 import React, {useState} from 'react'
-import Sidebar from '../components/sidebar'
 import Controller from '../components/controller'
-import cx from 'classnames'
 
 import styles from './main.module.css'
-import {Button} from '@sanity/ui'
+import {Button, Code, Inline, Card, Flex, Text} from '@sanity/ui'
+
+import styled, {css} from 'styled-components'
+import {hues} from '@sanity/color'
+
+function myThingStyle ({theme}) {
+  console.log(theme.sanity)
+  return css`
+    height: 10px;
+    background: #000;
+  `
+}
+
+const MyThing = styled.div(myThingStyle)
 
 class Block {
   constructor (flexBasis) {
@@ -16,13 +27,75 @@ class Block {
   }
 }
 
+const Canvas = styled.div`
+  margin: auto;
+  .canvas__inner {
+    display: flex;
+    position: relative;
+    background: ${hues.gray[50].hex};
+    padding: 1em;
+    width: 640px;
+    height: 640px;
+    border-radius: 48px;
+  }
+`
+
+const flexItemStyles = {
+  normal: {
+    boxShadow: `0px 16px 16px rgba(28, 37, 54, 0.1), 0px 4px 4px rgba(28, 37, 54, 0.1), 0px 32px 32px rgba(28, 37, 54, 0.1), inset 0px -4px 4px rgba(51, 62, 80, 0.06), inset 0px 4px 4px rgba(255, 255, 255, 0.25)`,
+    color: hues.gray[500].hex
+  },
+  selected: {
+    boxShadow: `0px 24px 24px rgba(28, 37, 54, 0.2), 0px 8px 8px rgba(28, 37, 54, 0.2), 0px 48px 48px rgba(28, 37, 54, 0.2), inset 0px -4px 4px rgba(51, 62, 80, 0.06), inset 0 0 0 4px ${hues.blue[500].hex}`,
+    color: hues.gray[900].hex
+  }
+}
+const FlexItem = styled.div`
+  margin: 1em;
+  padding: 20px 20px 10px;
+  border-radius: 24px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #F9FAFB 0%, #E4E8ED 100%);
+  position: relative;
+  ${props => (props.selected ? flexItemStyles.selected : flexItemStyles.normal)}
+  .flex_Item__buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+  }
+`
+const AddButton = styled(Button)`
+  margin: 1em;
+`
+
+const CanvasNav = styled(Inline)`
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+`
+
+const ItemSidebar = styled(Card)`
+  box-shadow: 0px 16px 16px rgba(28, 37, 54, 0.05), 0px 32px 32px rgba(28, 37, 54, 0.05);
+  flex-basis: 352px;
+  border-radius: 20px;
+  border: 1px solid ${hues.gray[100].hex};
+`
+
+const Footer = styled.footer`
+  margin-top: 20px;
+  text-align: center;
+  a {
+    color: ${hues.blue[500].hex};
+  }
+`
+
 const Main = props => {
   const [activeItem, setActiveItem] = useState(-1)
 
-  const [blocks, setBlocks] = useState([
-    new Block(100),
-    new Block(150)
-  ])
+  const [blocks, setBlocks] = useState([new Block(150), new Block(150)])
 
   const [scale, setScale] = useState(1)
 
@@ -53,8 +126,6 @@ const Main = props => {
   }
 
   const changeProperty = (property, value, itemIndex) => {
-    console.log(value)
-
     setBlocks(
       blocks.map((item, j) => {
         if (j === itemIndex) {
@@ -69,50 +140,87 @@ const Main = props => {
 
   return (
     <main className={styles.root}>
-      main
-      <div
-        className={styles.canvas}
-        style={{
-          alignItems: alignItems,
-          justifyContent: justifyContent,
-          alignContent: alignContent,
-          flexWrap: flexWrap,
-          flexDirection: flexDirection
-        }}
-      >
-        {blocks.map(block => (
-          <div
-            className={cx(styles.flexItem, {[styles.flexItemSelected]: block.selected})}
-            style={{flexBasis: block.flexBasis * scale, flexGrow: block.flexGrow, flexShrink: block.flexShrink, alignSelf: block.alignSelf}}
-            key={blocks.indexOf(block)}
-          >
-            <ul className={styles.flexItem__list}>
-              <li>align-self: {block.alignSelf}</li>
-              <li>flex-grow: {block.flexGrow}</li>
-              <li>flex-shrink: {block.flexShrink}</li>
-              <li>flex-basis: {block.flexBasis}</li>
-            </ul>
-            <Button onClick={() => selectItem(blocks.indexOf(block))} icon='edit' aria-label='edit' mode='bleed' />
-            <Button onClick={() => destroyItem(blocks.indexOf(block))} icon='trash' aria-label='delete' mode='bleed' tone='critical  ' />
-          </div>
-        ))}
-        <button
-          className={styles.button}
-          onClick={() => setBlocks(blocks.concat(new Block(100, 100)))}
+      <MyThing />
+      <Canvas>
+        <div
+          className='canvas__inner'
+          style={{
+            alignItems: alignItems,
+            justifyContent: justifyContent,
+            alignContent: alignContent,
+            flexWrap: flexWrap,
+            flexDirection: flexDirection
+          }}
         >
-          +
-        </button>
-        <div className={styles.canvasNav}>
-          <button onClick={() => setScale(scale + 0.2)}>+</button>
-          <button onClick={() => setScale(scale - 0.2)}>-</button>
-          <Button text='get code' tone='brand' />
+          {blocks.map(block => (
+            <FlexItem
+              style={{
+                flexBasis: block.flexBasis * scale,
+                flexGrow: block.flexGrow,
+                flexShrink: block.flexShrink,
+                alignSelf: block.alignSelf
+              }}
+              key={blocks.indexOf(block)}
+              selected={block.selected}
+            >
+              <Code>
+                <ul className={styles.flexItem__list}>
+                  <li>align-self: {block.alignSelf}</li>
+                  <li>flex-grow: {block.flexGrow}</li>
+                  <li>flex-shrink: {block.flexShrink}</li>
+                  <li>flex-basis: {block.flexBasis}</li>
+                </ul>
+              </Code>
+              <div className='flex_Item__buttons'>
+                <Button
+                  onClick={() => selectItem(blocks.indexOf(block))}
+                  icon='edit'
+                  aria-label='edit'
+                  mode='bleed'
+                />
+                <Button
+                  onClick={() => destroyItem(blocks.indexOf(block))}
+                  icon='trash'
+                  aria-label='delete'
+                  mode='bleed'
+                />
+              </div>
+            </FlexItem>
+          ))}
+          <AddButton
+            onClick={() => setBlocks(blocks.concat(new Block(100, 100)))}
+            mode='ghost'
+            padding={5}
+            icon='add'
+          />
+
+          <CanvasNav space={2}>
+            <Button
+              onClick={() => setScale(scale + 0.2)}
+              icon='expand'
+              aria-label='expand'
+              mode='ghost'
+            />
+            <Button
+              onClick={() => setScale(scale - 0.2)}
+              icon='collapse'
+              aria-label='collapse'
+              mode='ghost'
+            />
+            <Button text='Get code' tone='brand' mode='ghost' />
+          </CanvasNav>
         </div>
-      </div>
-      {activeItem + 1 && (
-        <Sidebar>
         <Footer>
           <Text size={1}>built with <a href='https://www.sanity.io'>Sanity</a> &amp; <a href='https://www.design.sanity.io'>Sanity UI</a></Text>
         </Footer>
+      </Canvas>
+      {activeItem + 1 ? (
+        <ItemSidebar paddingY={2}>
+          <Card marginX={2}>
+            <Flex justify='flex-end'>
+              <Button icon='close' onClick={() => selectItem(-1)} mode='bleed' />
+            </Flex>
+          </Card>
           <Controller
             onChange={value => changeProperty('alignSelf', value, activeItem)}
             state={blocks[activeItem].alignSelf}
@@ -141,7 +249,9 @@ const Main = props => {
             id='flexBasis'
             type='range'
           />
-        </Sidebar>
+        </ItemSidebar>
+      ) : (
+        ''
       )}
     </main>
   )
