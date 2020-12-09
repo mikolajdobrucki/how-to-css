@@ -18,12 +18,13 @@ function myThingStyle ({theme}) {
 const MyThing = styled.div(myThingStyle)
 
 class Block {
-  constructor (flexBasis) {
+  constructor (flexBasis, height = 200) {
     this.flexBasis = flexBasis
     this.selected = false
     this.alignSelf = 'initial'
     this.flexGrow = 0
     this.flexShrink = 1
+    this.height = height
   }
 }
 
@@ -95,7 +96,7 @@ const Footer = styled.footer`
 const Main = props => {
   const [activeItem, setActiveItem] = useState(-1)
 
-  const [blocks, setBlocks] = useState([new Block(150), new Block(150)])
+  const [blocks, setBlocks] = useState([new Block(150, 160), new Block(150, 240)])
 
   const [scale, setScale] = useState(1)
 
@@ -171,7 +172,8 @@ const Main = props => {
                   <li>flex-basis: {block.flexBasis}</li>
                 </ul>
               </Code>
-              <div className='flex_Item__buttons'>
+              
+              <div className='flexItem__buttons'>
                 <Button
                   onClick={() => selectItem(blocks.indexOf(block))}
                   icon='edit'
@@ -188,7 +190,7 @@ const Main = props => {
             </FlexItem>
           ))}
           <AddButton
-            onClick={() => setBlocks(blocks.concat(new Block(100, 100)))}
+            onClick={() => setBlocks(blocks.concat(new Block(100, Math.floor(Math.random() * 240) + 120)))}
             mode='ghost'
             padding={5}
             icon='add'
@@ -248,6 +250,15 @@ const Main = props => {
             title='flex-basis'
             id='flexBasis'
             type='range'
+            min={75}
+          />
+          <Controller
+            onChange={value => changeProperty('height', value, activeItem)}
+            state={blocks[activeItem].height}
+            title='height'
+            id='height'
+            type='range'
+            min={120}
           />
         </ItemSidebar>
       ) : (

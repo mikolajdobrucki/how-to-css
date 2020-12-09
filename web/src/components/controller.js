@@ -50,7 +50,7 @@ const Controller = props => {
           type='range'
           name={props.id}
           id={props.id}
-          min={50}
+          min={props.min}
           max={500}
           step={25}
           value={props.state}
