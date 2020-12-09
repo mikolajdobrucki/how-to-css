@@ -1,7 +1,7 @@
 import {Link} from 'gatsby'
 import React from 'react'
 import Icon from './icon'
-import {cn} from '../lib/helpers'
+import GitHubButton from 'react-github-btn'
 
 import styles from './header.module.css'
 
@@ -24,7 +24,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
       </button>
 
       <nav>
-        <a className="github-button" href="https://github.com/mikolajdobrucki/how-to-css" data-size="large" data-show-count="true" aria-label="Star mikolajdobrucki/how-to-css on GitHub">Star</a>
+        <GitHubButton href='https://github.com/mikolajdobrucki/how-to-css' data-size='large' data-show-count='true' aria-label='Star mikolajdobrucki/how-to-css on GitHub'>Star</GitHubButton>
       </nav>
     </div>
   </div>

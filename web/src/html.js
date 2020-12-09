@@ -11,7 +11,6 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script async defer src='https://buttons.github.io/buttons.js' />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -25,6 +24,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        <script src='https://buttons.github.io/buttons.js' />
       </body>
     </html>
   )
