@@ -39,10 +39,13 @@ const Canvas = styled.div`
     display: flex;
     position: relative;
     background: ${hues.gray[50].hex};
-    padding: 1em;
-    width: 640px;
-    height: 640px;
+    padding: 1em 1em 55px;
+    margin-right: 2em;
+    min-height: 600px;
     border-radius: 48px;
+    @media (min-width: 1050px) {
+      min-width: 640px;
+    }
   }
 `
 
