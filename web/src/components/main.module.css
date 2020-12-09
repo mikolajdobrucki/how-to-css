@@ -6,27 +6,12 @@
   flex-grow: 1;
   padding: 1.5em;
   display: flex;
+  height: calc(100vh - 82px);
+  overflow: scroll;
 
   @media (--media-min-small) {
     padding: 2em;
   }
-}
-
-.flexItem {
-  border: 1px solid salmon;
-  margin: 1em;
-  padding: .5em;
-}
-
-.flexItem__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: .75rem;
-}
-
-.flexItemSelected {
-  border-width: 3px;
 }
 
 .button {

@@ -30,6 +30,11 @@ class Block {
 
 const Canvas = styled.div`
   margin: auto;
+  flex-grow: 1;
+  @media (min-width: 1050px) {
+    flex-grow: 0;
+  }
+  
   .canvas__inner {
     display: flex;
     position: relative;
@@ -55,16 +60,44 @@ const FlexItem = styled.div`
   margin: 1em;
   padding: 20px 20px 10px;
   border-radius: 24px;
-  min-height: 160px;
+  min-height: 120px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: linear-gradient(180deg, #F9FAFB 0%, #E4E8ED 100%);
   position: relative;
+  overflow: scroll;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 100%;
+    // background: linear-gradient(90deg, hsla(213, 20%, 95%, 0) 0%, hsl(213, 20%, 95%) 100%);
+  }
   ${props => (props.selected ? flexItemStyles.selected : flexItemStyles.normal)}
-  .flex_Item__buttons {
+
+  .flexItem__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: .75rem;
+    width: 0;
+    li {
+      display: flex;
+    }
+  }
+  .flexItem__buttons {
     margin-top: auto;
     display: flex;
     justify-content: center;
+    flex-grow: 1;
+  }
+  .flexItem__spacer {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 `
 const AddButton = styled(Button)`
@@ -81,8 +114,11 @@ const CanvasNav = styled(Inline)`
 const ItemSidebar = styled(Card)`
   box-shadow: 0px 16px 16px rgba(28, 37, 54, 0.05), 0px 32px 32px rgba(28, 37, 54, 0.05);
   flex-basis: 352px;
+  flex-shrink: 0;
   border-radius: 20px;
   border: 1px solid ${hues.gray[100].hex};
+  max-height: calc(100vh - 80px);
+  overflow: scroll;
 `
 
 const Footer = styled.footer`
@@ -157,6 +193,7 @@ const Main = props => {
             <FlexItem
               style={{
                 flexBasis: block.flexBasis * scale,
+                height: block.height * scale,
                 flexGrow: block.flexGrow,
                 flexShrink: block.flexShrink,
                 alignSelf: block.alignSelf
@@ -165,11 +202,11 @@ const Main = props => {
               selected={block.selected}
             >
               <Code>
-                <ul className={styles.flexItem__list}>
-                  <li>align-self: {block.alignSelf}</li>
-                  <li>flex-grow: {block.flexGrow}</li>
-                  <li>flex-shrink: {block.flexShrink}</li>
-                  <li>flex-basis: {block.flexBasis}</li>
+                <ul className='flexItem__list'>
+                  <li>align-self: {block.alignSelf}<div className='flexItem__spacer' /></li>
+                  <li>flex-grow: {block.flexGrow}<div className='flexItem__spacer' /></li>
+                  <li>flex-shrink: {block.flexShrink}<div className='flexItem__spacer' /></li>
+                  <li>flex-basis: {block.flexBasis}<div className='flexItem__spacer' /></li>
                 </ul>
               </Code>
               

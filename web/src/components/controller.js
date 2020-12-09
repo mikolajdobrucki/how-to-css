@@ -24,7 +24,7 @@ const ControllerBlock = styled.label`
 
 const Range = styled.input`
 width: 100%;
-margin-top: 30px;
+margin: 30px 0;
 &::-webkit-slider-runnable-track {
   height: 2px;
   border: 0;
