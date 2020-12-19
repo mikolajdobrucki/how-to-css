@@ -2,7 +2,7 @@ import {Card, Flex, Heading, Label} from '@sanity/ui'
 import React from 'react'
 import styled from 'styled-components'
 import ControllerIcon from '../components/controllerIcon'
-import {hues, white} from '@sanity/color'
+import {hues} from '@sanity/color'
 
 const ControllerLabel = styled(Label)`
   text-align: center;

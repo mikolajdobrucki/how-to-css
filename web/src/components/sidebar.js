@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import styles from './sidebar.module.css'
+const Root = styled.aside`
+  box-sizing: border-box;
+  flex-basis: 352px;
+  flex-shrink: 0;
+  height: calc(100vh - 82px);
+  overflow: scroll;
+`
 
 const Sidebar = ({children}) => {
-  return <aside className={styles.root}>{children}</aside>
+  return <Root>{children}</Root>
 }
 
 export default Sidebar

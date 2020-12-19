@@ -2,7 +2,6 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Project from '../components/project'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
@@ -94,7 +93,6 @@ const ProjectTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </Container>
       )}
-      {project && <Project {...project} />}
     </Layout>
   )
 }

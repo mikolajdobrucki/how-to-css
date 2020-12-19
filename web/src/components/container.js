@@ -1,9 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import styles from './container.module.css'
+const Div = styled.div`
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 1.5em;
+  margin: 0 auto;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+`
 
 const Container = ({children}) => {
-  return <div className={styles.root}>{children}</div>
+  return <Div>{children}</Div>
 }
 
 export default Container

@@ -1,33 +1,50 @@
 import {Link} from 'gatsby'
 import React from 'react'
-import Icon from './icon'
 import GitHubButton from 'react-github-btn'
-
-import styles from './header.module.css'
-
 import Logo from './graphic/logo'
 import {Flex, Text, Card} from '@sanity/ui'
+import styled from 'styled-components'
 
-const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
-  <div className={styles.root}>
-    <div className={styles.wrapper}>
-      <div className={styles.branding}>
+const Root = styled.header`
+  position: relative;
+  z-index: 100;
+`
+
+const Wrapper = styled.div`
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1em;
+  display: flex;
+`
+
+const Branding = styled.div`
+  font-weight: 600;
+  flex: 1;
+
+  a {
+    display: inline-block;
+    padding: 0.5em;
+    color: inherit;
+    text-decoration: none;
+  }
+`
+
+const Header = ({siteTitle}) => (
+  <Root>
+    <Wrapper>
+      <Branding>
         <Card><Flex align='center'>
           <Logo />
           <Link to='/'><Text weight='semibold' size={2}>{siteTitle}</Text></Link>
           <Text muted>the flexbox tool you still unfortunately need</Text>
         </Flex></Card>
-      </div>
-
-      <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-        <Icon symbol='hamburger' />
-      </button>
+      </Branding>
 
       <nav>
         <GitHubButton href='https://github.com/mikolajdobrucki/how-to-css' data-size='large' data-show-count='true' aria-label='Star mikolajdobrucki/how-to-css on GitHub'>Star</GitHubButton>
       </nav>
-    </div>
-  </div>
+    </Wrapper>
+  </Root>
 )
 
 export default Header

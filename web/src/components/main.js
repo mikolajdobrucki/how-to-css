@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import Controller from '../components/controller'
-
-import styles from './main.module.css'
 import {Button, Code, Inline, Card, Flex, Text} from '@sanity/ui'
 
 import styled, {css} from 'styled-components'
@@ -132,6 +130,20 @@ const Footer = styled.footer`
   }
 `
 
+const Wrapper = styled.main`
+  box-sizing: border-box;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 1.5em;
+  display: flex;
+  height: calc(100vh - 82px);
+  overflow: scroll;
+
+  @media (--media-min-small) {
+    padding: 2em;
+  }
+`
+
 const Main = props => {
   const [activeItem, setActiveItem] = useState(-1)
 
@@ -179,7 +191,7 @@ const Main = props => {
   }
 
   return (
-    <main className={styles.root}>
+    <Wrapper>
       <MyThing />
       <Canvas>
         <div
@@ -304,7 +316,7 @@ const Main = props => {
       ) : (
         ''
       )}
-    </main>
+    </Wrapper>
   )
 }
 
