@@ -16,13 +16,13 @@ function myThingStyle ({theme}) {
 const MyThing = styled.div(myThingStyle)
 
 class Block {
-  constructor (flexBasis, height = 200) {
+  constructor (flexBasis, size = 200) {
     this.flexBasis = flexBasis
     this.selected = false
     this.alignSelf = 'initial'
     this.flexGrow = 0
     this.flexShrink = 1
-    this.height = height
+    this.size = size
   }
 }
 
@@ -109,6 +109,7 @@ const CanvasNav = styled(Inline)`
   width: 100%;
   position: absolute;
   bottom: 20px;
+  left: 0;
   text-align: center;
 `
 
@@ -208,7 +209,8 @@ const Main = props => {
             <FlexItem
               style={{
                 flexBasis: block.flexBasis * scale,
-                height: block.height * scale,
+                height: flexDirection === 'row' || flexDirection === 'row-reverse' ? block.size * scale : 'auto',
+                width: flexDirection === 'column' || flexDirection === 'column-reverse' ? block.size * scale : 'auto',
                 flexGrow: block.flexGrow,
                 flexShrink: block.flexShrink,
                 alignSelf: block.alignSelf
@@ -305,10 +307,10 @@ const Main = props => {
             min={75}
           />
           <Controller
-            onChange={value => changeProperty('height', value, activeItem)}
-            state={blocks[activeItem].height}
-            title='height'
-            id='height'
+            onChange={value => changeProperty('size', value, activeItem)}
+            state={blocks[activeItem].size}
+            title='size'
+            id='size'
             type='range'
             min={120}
           />
