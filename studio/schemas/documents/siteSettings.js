@@ -21,6 +21,13 @@ export default {
       description: 'Describe your portfolio for search engines and social media.'
     },
     {
+      name: 'taglines',
+      type: 'array',
+      title: 'Random taglines',
+      description: 'Funny taglines that describe the product',
+      of: [{type: 'string'}]
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
