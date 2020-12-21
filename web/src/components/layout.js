@@ -15,9 +15,9 @@ const Content = styled.div`
   display: flex;
 `
 
-const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle}) => (
+const Layout = ({children, onHideNav, onShowNav, showNav, siteTitle, siteTaglines}) => (
   <>
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <Header siteTitle={siteTitle} siteTaglines={siteTaglines[Math.floor(Math.random() * siteTaglines.length)]} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <Content>{children}</Content>
   </>
 )

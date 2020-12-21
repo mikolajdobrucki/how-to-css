@@ -32,7 +32,7 @@ const Canvas = styled.div`
   @media (min-width: 1050px) {
     flex-grow: 0;
   }
-  
+
   .canvas__inner {
     display: flex;
     position: relative;
@@ -64,7 +64,7 @@ const FlexItem = styled.div`
   min-height: 120px;
   display: flex;
   flex-direction: row;
-  background: linear-gradient(180deg, #F9FAFB 0%, #E4E8ED 100%);
+  background: linear-gradient(180deg, #f9fafb 0%, #e4e8ed 100%);
   position: relative;
   overflow: scroll;
 
@@ -83,7 +83,7 @@ const FlexItem = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: .75rem;
+    font-size: 0.75rem;
     width: 0;
     li {
       display: flex;
@@ -209,8 +209,14 @@ const Main = props => {
             <FlexItem
               style={{
                 flexBasis: block.flexBasis * scale,
-                height: flexDirection === 'row' || flexDirection === 'row-reverse' ? block.size * scale : 'auto',
-                width: flexDirection === 'column' || flexDirection === 'column-reverse' ? block.size * scale : 'auto',
+                height:
+                  flexDirection === 'row' || flexDirection === 'row-reverse'
+                    ? block.size * scale
+                    : 'auto',
+                width:
+                  flexDirection === 'column' || flexDirection === 'column-reverse'
+                    ? block.size * scale
+                    : 'auto',
                 flexGrow: block.flexGrow,
                 flexShrink: block.flexShrink,
                 alignSelf: block.alignSelf
@@ -220,13 +226,25 @@ const Main = props => {
             >
               <Code>
                 <ul className='flexItem__list'>
-                  <li>align-self: {block.alignSelf}<div className='flexItem__spacer' /></li>
-                  <li>flex-grow: {block.flexGrow}<div className='flexItem__spacer' /></li>
-                  <li>flex-shrink: {block.flexShrink}<div className='flexItem__spacer' /></li>
-                  <li>flex-basis: {block.flexBasis}<div className='flexItem__spacer' /></li>
+                  <li>
+                    align-self: {block.alignSelf}
+                    <div className='flexItem__spacer' />
+                  </li>
+                  <li>
+                    flex-grow: {block.flexGrow}
+                    <div className='flexItem__spacer' />
+                  </li>
+                  <li>
+                    flex-shrink: {block.flexShrink}
+                    <div className='flexItem__spacer' />
+                  </li>
+                  <li>
+                    flex-basis: {block.flexBasis}
+                    <div className='flexItem__spacer' />
+                  </li>
                 </ul>
               </Code>
-              
+
               <div className='flexItem__buttons'>
                 <Button
                   onClick={() => selectItem(blocks.indexOf(block))}
@@ -244,7 +262,9 @@ const Main = props => {
             </FlexItem>
           ))}
           <AddButton
-            onClick={() => setBlocks(blocks.concat(new Block(100, Math.floor(Math.random() * 240) + 120)))}
+            onClick={() =>
+              setBlocks(blocks.concat(new Block(100, Math.floor(Math.random() * 240) + 120)))
+            }
             mode='ghost'
             padding={5}
             icon='add'
@@ -267,7 +287,20 @@ const Main = props => {
           </CanvasNav>
         </div>
         <Footer>
-          <Text size={1}>built with <a href='https://www.sanity.io'>Sanity</a> &amp; <a href='https://www.design.sanity.io'>Sanity UI</a></Text>
+          <Text size={1}>
+            built by{' '}
+            <a href='https://www.twitter.com/mikolajdobrucki' target='_blank'>
+              @mikolajdobrucki
+            </a>{' '}
+            with{' '}
+            <a href='https://www.sanity.io' target='_blank'>
+              Sanity
+            </a>{' '}
+            &amp;{' '}
+            <a href='https://www.design.sanity.io' target='_blank'>
+              Sanity UI
+            </a>
+          </Text>
         </Footer>
       </Canvas>
       {activeItem + 1 ? (

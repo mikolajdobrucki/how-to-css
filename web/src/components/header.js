@@ -23,20 +23,20 @@ const Branding = styled.div`
 
   a {
     display: inline-block;
-    padding: 0.5em;
+    padding: 0.5em 2em 0.5em 0.5em;
     color: inherit;
     text-decoration: none;
   }
 `
 
-const Header = ({siteTitle}) => (
+const Header = ({siteTitle, siteTaglines}) => (
   <Root>
     <Wrapper>
       <Branding>
         <Card><Flex align='center'>
           <Logo />
           <Link to='/'><Text weight='semibold' size={2}>{siteTitle}</Text></Link>
-          <Text muted>the flexbox tool you still unfortunately need</Text>
+          <Text muted>{siteTaglines}</Text>
         </Flex></Card>
       </Branding>
 
