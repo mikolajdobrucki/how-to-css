@@ -1,6 +1,6 @@
 import React, {useState, useCallback} from 'react'
 import Controller from '../components/controller'
-import {Button, Code, Inline, Card, Flex, Text, TextArea, Dialog, Box} from '@sanity/ui'
+import {Button, Code, Inline, Card, Flex, Text, TextArea, Dialog, Box, Heading, Stack} from '@sanity/ui'
 
 import styled, {css} from 'styled-components'
 import {hues} from '@sanity/color'
@@ -146,14 +146,14 @@ const Wrapper = styled.main`
 `
 
 const CodeTextArea = styled(TextArea)`
-  height: 150px;
+  height: 120px;
   font-family: -apple-system-ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace;
 `
 
 const CopyButton = styled(Button)`
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1rem;
+  right: 1rem;
   z-index: 10;
   cursor: default;
 `
@@ -306,19 +306,34 @@ const Main = props => {
 
           {openCopyModal && (
             <Dialog header='Your CSS code' id='dialog-example' onClose={onCloseCopyModal} zOffset={1000}>
-              <Box padding={4} style={{position: 'relative'}}>
-                <CodeTextArea onFocus={handleFocus} size={1}>
-                  {`align-items: ${alignItems};
+              <Box padding={4}>
+                <Stack space={4}>
+                  <Box style={{position: 'relative'}}>
+                    <CodeTextArea onFocus={handleFocus} size={1}
+                      defaultValue={`align-items: ${alignItems};
 justify-content: ${justifyContent};
 align-content: ${alignContent};
 flex-direction: ${flexDirection};`}
-                </CodeTextArea>
-                <CopyButton
-                  onClick={() => document.execCommand('copy')}
-                  icon='documents'
-                  aria-label='expand'
-                  tone='primary'
-                />
+                    />
+                    <CopyButton
+                      onClick={() => document.execCommand('copy') && onOpenCopyModal && onCloseCopyModal}
+                      icon='documents'
+                      aria-label='expand'
+                      tone='primary'
+                    />
+                  </Box>
+
+                  <Card padding={5} tone='primary' radius={1}>
+                    <Stack space={5}>
+                      <Heading size={2}>Thank you for using hottocss.dev!</Heading>
+                      <Text>If you like it, please show your support on Github and Twitter!</Text>
+                      <Stack space={3}>
+                        <Button padding={4} tone='primary' icon='comment' text='Share on Twitter' as='a' href='#' target='_blank' />
+                        <Button padding={4} tone='primary' icon='star' text='Star on Github' as='a' href='https://github.com/mikolajdobrucki/how-to-css' target='_blank' />
+                      </Stack>
+                    </Stack>
+                  </Card>
+                </Stack>
               </Box>
             </Dialog>
           )}
