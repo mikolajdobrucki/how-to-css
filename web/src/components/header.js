@@ -7,7 +7,6 @@ import styled from 'styled-components'
 
 const Root = styled.header`
   position: relative;
-  z-index: 100;
 `
 
 const Wrapper = styled.div`

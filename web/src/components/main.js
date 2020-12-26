@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import Controller from '../components/controller'
-import {Button, Code, Inline, Card, Flex, Text} from '@sanity/ui'
+import {Button, Code, Inline, Card, Flex, Text, TextArea, Dialog, Box} from '@sanity/ui'
 
 import styled, {css} from 'styled-components'
 import {hues} from '@sanity/color'
@@ -145,6 +145,19 @@ const Wrapper = styled.main`
   }
 `
 
+const CodeTextArea = styled(TextArea)`
+  height: 150px;
+  font-family: -apple-system-ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace;
+`
+
+const CopyButton = styled(Button)`
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+  cursor: default;
+`
+
 const Main = props => {
   const [activeItem, setActiveItem] = useState(-1)
 
@@ -154,7 +167,9 @@ const Main = props => {
 
   const {alignItems, justifyContent, alignContent, flexDirection, flexWrap} = props
 
-  console.log(blocks)
+  const [openCopyModal, setOpenCopyModal] = useState(false)
+  const onCloseCopyModal = useCallback(() => setOpenCopyModal(false), [])
+  const onOpenCopyModal = useCallback(() => setOpenCopyModal(true), [])
 
   const selectItem = index => {
     setActiveItem(index)
@@ -190,6 +205,8 @@ const Main = props => {
       })
     )
   }
+
+  const handleFocus = (event) => event.target.select()
 
   return (
     <Wrapper>
@@ -283,8 +300,28 @@ const Main = props => {
               aria-label='collapse'
               mode='ghost'
             />
-            <Button text='Get code' tone='brand' mode='ghost' />
+            <Button text='Get code' tone='brand' mode='ghost' onClick={onOpenCopyModal} />
+
           </CanvasNav>
+
+          {openCopyModal && (
+            <Dialog header='Your CSS code' id='dialog-example' onClose={onCloseCopyModal} zOffset={1000}>
+              <Box padding={4} style={{position: 'relative'}}>
+                <CodeTextArea onFocus={handleFocus} size={1}>
+                  {`align-items: ${alignItems};
+justify-content: ${justifyContent};
+align-content: ${alignContent};
+flex-direction: ${flexDirection};`}
+                </CodeTextArea>
+                <CopyButton
+                  onClick={() => document.execCommand('copy')}
+                  icon='documents'
+                  aria-label='expand'
+                  tone='primary'
+                />
+              </Box>
+            </Dialog>
+          )}
         </div>
         <Footer>
           <Text size={1}>
