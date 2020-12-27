@@ -5,8 +5,7 @@ import {Button, Code, Inline, Card, Flex, Text, TextArea, Dialog, Box, Heading, 
 import styled, {css} from 'styled-components'
 import {hues} from '@sanity/color'
 
-function myThingStyle ({theme}) {
-  console.log(theme.sanity)
+function myThingStyle () {
   return css`
     height: 10px;
     background: #000;

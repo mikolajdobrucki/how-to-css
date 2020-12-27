@@ -4,6 +4,8 @@ import Helmet from 'react-helmet'
 import {StaticQuery, graphql} from 'gatsby'
 import ogimage from '../images/og-image.png'
 
+
+
 function SEO ({description, lang, meta, keywords, title}) {
   return (
     <StaticQuery
@@ -15,7 +17,7 @@ function SEO ({description, lang, meta, keywords, title}) {
         return (
           <Helmet
             htmlAttributes={{lang}}
-            title={title}
+            title={`${title} – flexbox cheatsheet & playground`}
             titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
             meta={[
               {
@@ -40,11 +42,11 @@ function SEO ({description, lang, meta, keywords, title}) {
               },
               {
                 name: 'twitter:image',
-                content: ogimage
+                content: `https://www.howtocss.dev/${ogimage}`
               },
               {
                 name: 'og:image',
-                content: ogimage
+                content: `https://www.howtocss.dev/${ogimage}`
               },
               {
                 name: 'twitter:creator',
