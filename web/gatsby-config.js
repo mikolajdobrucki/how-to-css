@@ -21,6 +21,18 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'hottocss.dev',
+        short_name: 'hottocss.dev',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#156dff',
+        display: 'standalone',
+        icon: 'src/images/favicon.png'
+      }
     }
   ]
 }
