@@ -285,12 +285,12 @@ const controllerIcon = props => {
       icon = (
         <div className='icon icon--large'>
           <div className='icon__spacer icon__spacer--horizontal' />
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
@@ -303,12 +303,12 @@ const controllerIcon = props => {
       icon = (
         <div className='icon icon--large'>
           <div className='icon__spacer icon__spacer--horizontal' />
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
@@ -319,12 +319,12 @@ const controllerIcon = props => {
     case 'alignContent-flex-end':
       icon = (
         <div className='icon icon--large'>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
@@ -336,12 +336,12 @@ const controllerIcon = props => {
     case 'alignContent-stretch':
       icon = (
         <div className='icon icon--large'>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block' />
             <div className='icon__block icon__block' />
             <div className='icon__block icon__block' />
           </div>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block' />
             <div className='icon__block icon__block' />
           </div>
@@ -352,13 +352,13 @@ const controllerIcon = props => {
     case 'alignContent-space-between':
       icon = (
         <div className='icon icon--large'>
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
           <div className='icon__spacer icon__spacer--horizontal' />
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
@@ -370,13 +370,13 @@ const controllerIcon = props => {
       icon = (
         <div className='icon icon--large'>
           <div className='icon__spacer icon__spacer--horizontal' />
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>
           <div className='icon__spacer icon__spacer--horizontal' />
-          <div className='icon__blocks' style={{}}>
+          <div className='icon__blocks' style={{justifyContent: props.settings.justifyContent}}>
             <div className='icon__block icon__block--small' />
             <div className='icon__block icon__block--small' />
           </div>

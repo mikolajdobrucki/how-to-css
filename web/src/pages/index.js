@@ -73,6 +73,7 @@ function IndexPage (props) {
           title='align-content'
           id='alignContent'
           values={['center', 'flex-start', 'flex-end', 'stretch', 'space-between', 'space-around']}
+          settings={{justifyContent}}
         />
         <Controller
           onChange={value => setFlexDirection(value)}

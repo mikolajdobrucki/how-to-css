@@ -61,7 +61,7 @@ const Controller = props => {
           <Flex wrap='wrap'>
             {props.values.map(value => (
               <ControllerBlock key={value} active={props.state === value}>
-                <ControllerIcon icon={props.id + '-' + value} active={props.state === value} value={value} />
+                <ControllerIcon icon={props.id + '-' + value} active={props.state === value} value={value} settings={props.settings} />
                 <input
                   type='radio'
                   name={props.id}

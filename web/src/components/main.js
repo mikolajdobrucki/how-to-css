@@ -261,19 +261,19 @@ const Main = props => {
             >
               <Code>
                 <ul className='flexItem__list'>
-                  <li>
+                  <li style={{color: block.alignSelf !== 'initial' ? hues.blue[500].hex : 'inherit'}}>
                     align-self: {block.alignSelf}
                     <div className='flexItem__spacer' />
                   </li>
-                  <li>
+                  <li style={{color: block.flexGrow !== 0 ? hues.blue[500].hex : 'inherit'}}>
                     flex-grow: {block.flexGrow}
                     <div className='flexItem__spacer' />
                   </li>
-                  <li>
+                  <li style={{color: block.flexShrink !== 1 ? hues.blue[500].hex : 'inherit'}}>
                     flex-shrink: {block.flexShrink}
                     <div className='flexItem__spacer' />
                   </li>
-                  <li>
+                  <li style={{color: block.flexBasis !== 150 ? hues.blue[500].hex : 'inherit'}}>
                     flex-basis: {block.flexBasis}
                     <div className='flexItem__spacer' />
                   </li>
