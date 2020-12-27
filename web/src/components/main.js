@@ -37,10 +37,13 @@ const Canvas = styled.div`
     display: flex;
     position: relative;
     background: ${hues.gray[50].hex};
-    padding: 1em 1em 55px;
-    margin-right: 2em;
-    min-height: 600px;
+    padding: 1em;
     border-radius: 48px;
+    @media (min-width: 481px) {
+      min-height: 600px;
+      margin-right: 2em;
+      padding-bottom: 55px;
+    }
     @media (min-width: 1050px) {
       min-width: 640px;
     }
@@ -75,7 +78,6 @@ const FlexItem = styled.div`
     right: 0;
     width: 15px;
     height: 100%;
-    // background: linear-gradient(90deg, hsla(213, 20%, 95%, 0) 0%, hsl(213, 20%, 95%) 100%);
   }
   ${props => (props.selected ? flexItemStyles.selected : flexItemStyles.normal)}
 
@@ -88,12 +90,18 @@ const FlexItem = styled.div`
     li {
       display: flex;
     }
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
   .flexItem__buttons {
     margin-top: auto;
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
   .flexItem__spacer {
     width: 20px;
@@ -111,6 +119,10 @@ const CanvasNav = styled(Inline)`
   bottom: 20px;
   left: 0;
   text-align: center;
+  @media (max-width: 480px) {
+    display: none;
+    visibility: hidden;
+  }
 `
 
 const ItemSidebar = styled(Card)`
@@ -129,6 +141,9 @@ const Footer = styled.footer`
   a {
     color: ${hues.blue[500].hex};
   }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `
 
 const Wrapper = styled.main`
@@ -137,8 +152,11 @@ const Wrapper = styled.main`
   flex-grow: 1;
   padding: 1.5em;
   display: flex;
-  height: calc(100vh - 82px);
-  overflow: scroll;
+
+  @media (min-width: 801px) {
+    height: calc(100vh - 82px);
+    overflow: scroll;
+  }
 
   @media (--media-min-small) {
     padding: 2em;
@@ -283,7 +301,7 @@ const Main = props => {
               setBlocks(blocks.concat(new Block(100, Math.floor(Math.random() * 240) + 120)))
             }
             mode='ghost'
-            padding={5}
+            padding={[4, 4, 5]}
             icon='add'
           />
 

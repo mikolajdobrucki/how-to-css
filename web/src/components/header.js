@@ -28,6 +28,14 @@ const Branding = styled.div`
   }
 `
 
+const Tagline = styled(Text)`
+  @media (max-width: 800px) {
+    visibility: hidden;
+    width: 0;
+    position: absolute;
+  }
+`
+
 const Header = ({siteTitle, siteTaglines}) => (
   <Root>
     <Wrapper>
@@ -35,7 +43,7 @@ const Header = ({siteTitle, siteTaglines}) => (
         <Card><Flex align='center'>
           <Logo />
           <Link to='/'><Text weight='semibold' size={2}>{siteTitle}</Text></Link>
-          <Text muted>{siteTaglines}</Text>
+          <Tagline muted>{siteTaglines}</Tagline>
         </Flex></Card>
       </Branding>
 

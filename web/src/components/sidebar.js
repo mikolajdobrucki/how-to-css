@@ -5,8 +5,10 @@ const Root = styled.aside`
   box-sizing: border-box;
   flex-basis: 352px;
   flex-shrink: 0;
-  height: calc(100vh - 82px);
-  overflow: scroll;
+  @media (min-width: 801px) {
+    height: calc(100vh - 82px);
+    overflow: scroll;
+  }
 `
 
 const Sidebar = ({children}) => {
