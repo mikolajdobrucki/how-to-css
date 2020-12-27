@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {StaticQuery, graphql} from 'gatsby'
+import ogimage from '../images/og-image.png'
 
 function SEO ({description, lang, meta, keywords, title}) {
   return (
@@ -36,6 +37,14 @@ function SEO ({description, lang, meta, keywords, title}) {
               {
                 name: 'twitter:card',
                 content: 'summary'
+              },
+              {
+                name: 'twitter:image',
+                content: ogimage
+              },
+              {
+                name: 'og:image',
+                content: ogimage
               },
               {
                 name: 'twitter:creator',
