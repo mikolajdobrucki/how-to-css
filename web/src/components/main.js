@@ -346,7 +346,7 @@ flex-direction: ${flexDirection};`}
                       <Heading size={2}>Thank you for using hottocss.dev!</Heading>
                       <Text>If you like it, please show your support on Github and Twitter!</Text>
                       <Stack space={3}>
-                        <Button padding={4} tone='primary' icon='comment' text='Share on Twitter' as='a' href='#' target='_blank' />
+                        <Button padding={4} tone='primary' icon='comment' text='Share on Twitter' as='a' href='https://twitter.com/intent/tweet?text=Check%20out%20hottocss.dev%20%E2%80%93%20the%20best%20CSS%20flexbox%20cheatsheet%20and%20online%20playground%20by%20%40mikolajdobrucki%0D%0A%0D%0Ahttps%3A%2F%2Fwww.howtocss.dev' target='_blank' />
                         <Button padding={4} tone='primary' icon='star' text='Star on Github' as='a' href='https://github.com/mikolajdobrucki/how-to-css' target='_blank' />
                       </Stack>
                     </Stack>
