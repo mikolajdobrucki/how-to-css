@@ -33,6 +33,14 @@ module.exports = {
         display: 'standalone',
         icon: 'src/images/favicon.png'
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'G-8WE8DEFE0W'
+        ]
+      }
     }
   ]
 }
