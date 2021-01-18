@@ -1,6 +1,18 @@
 import React, {useState, useCallback} from 'react'
 import Controller from '../components/controller'
-import {Button, Code, Inline, Card, Flex, Text, TextArea, Dialog, Box, Heading, Stack} from '@sanity/ui'
+import {
+  Button,
+  Code,
+  Inline,
+  Card,
+  Flex,
+  Text,
+  TextArea,
+  Dialog,
+  Box,
+  Heading,
+  Stack
+} from '@sanity/ui'
 
 import styled, {css} from 'styled-components'
 import {hues} from '@sanity/color'
@@ -164,7 +176,7 @@ const Wrapper = styled.main`
 
 const CodeTextArea = styled(TextArea)`
   height: 120px;
-  font-family: -apple-system-ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace;
+  font-family: -apple-system-ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 `
 
 const CopyButton = styled(Button)`
@@ -223,7 +235,7 @@ const Main = props => {
     )
   }
 
-  const handleFocus = (event) => event.target.select()
+  const handleFocus = event => event.target.select()
 
   return (
     <Wrapper>
@@ -260,7 +272,11 @@ const Main = props => {
             >
               <Code>
                 <ul className='flexItem__list'>
-                  <li style={{color: block.alignSelf !== 'initial' ? hues.blue[500].hex : 'inherit'}}>
+                  <li
+                    style={{
+                      color: block.alignSelf !== 'initial' ? hues.blue[500].hex : 'inherit'
+                    }}
+                  >
                     align-self: {block.alignSelf}
                     <div className='flexItem__spacer' />
                   </li>
@@ -318,22 +334,30 @@ const Main = props => {
               mode='ghost'
             />
             <Button text='Get code' tone='brand' mode='ghost' onClick={onOpenCopyModal} />
-
           </CanvasNav>
 
           {openCopyModal && (
-            <Dialog header='Your CSS code' id='dialog-example' onClose={onCloseCopyModal} zOffset={1000}>
+            <Dialog
+              header='Your CSS code'
+              id='dialog-example'
+              onClose={onCloseCopyModal}
+              zOffset={1000}
+            >
               <Box padding={4}>
                 <Stack space={4}>
                   <Box style={{position: 'relative'}}>
-                    <CodeTextArea onFocus={handleFocus} size={1}
+                    <CodeTextArea
+                      onFocus={handleFocus}
+                      size={1}
                       defaultValue={`align-items: ${alignItems};
 justify-content: ${justifyContent};
 align-content: ${alignContent};
 flex-direction: ${flexDirection};`}
                     />
                     <CopyButton
-                      onClick={() => document.execCommand('copy') && onOpenCopyModal && onCloseCopyModal}
+                      onClick={() =>
+                        document.execCommand('copy') && onOpenCopyModal && onCloseCopyModal
+                      }
                       icon='documents'
                       aria-label='expand'
                       tone='primary'
@@ -345,8 +369,24 @@ flex-direction: ${flexDirection};`}
                       <Heading size={2}>Thank you for using hottocss.dev!</Heading>
                       <Text>If you like it, please show your support on Github and Twitter!</Text>
                       <Stack space={3}>
-                        <Button padding={4} tone='primary' icon='comment' text='Share on Twitter' as='a' href='https://twitter.com/intent/tweet?text=Check%20out%20hottocss.dev%20%E2%80%93%20the%20best%20CSS%20flexbox%20cheatsheet%20and%20online%20playground%20by%20%40mikolajdobrucki%0D%0A%0D%0Ahttps%3A%2F%2Fwww.howtocss.dev' target='_blank' />
-                        <Button padding={4} tone='primary' icon='star' text='Star on Github' as='a' href='https://github.com/mikolajdobrucki/how-to-css' target='_blank' />
+                        <Button
+                          padding={4}
+                          tone='primary'
+                          icon='comment'
+                          text='Share on Twitter'
+                          as='a'
+                          href='https://twitter.com/intent/tweet?text=Check%20out%20hottocss.dev%20%E2%80%93%20the%20best%20CSS%20flexbox%20cheatsheet%20and%20online%20playground%20by%20%40mikolajdobrucki%0D%0A%0D%0Ahttps%3A%2F%2Fwww.howtocss.dev'
+                          target='_blank'
+                        />
+                        <Button
+                          padding={4}
+                          tone='primary'
+                          icon='star'
+                          text='Star on Github'
+                          as='a'
+                          href='https://github.com/mikolajdobrucki/how-to-css'
+                          target='_blank'
+                        />
                       </Stack>
                     </Stack>
                   </Card>
