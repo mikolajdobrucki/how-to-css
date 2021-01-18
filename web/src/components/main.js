@@ -289,7 +289,7 @@ const Main = props => {
                     <div className='flexItem__spacer' />
                   </li>
                   <li style={{color: block.flexBasis !== 150 ? hues.blue[500].hex : 'inherit'}}>
-                    flex-basis: {block.flexBasis}
+                    flex-basis: {Math.round(block.flexBasis * scale)}
                     <div className='flexItem__spacer' />
                   </li>
                 </ul>
