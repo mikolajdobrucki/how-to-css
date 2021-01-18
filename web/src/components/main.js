@@ -311,16 +311,16 @@ const Main = props => {
               </div>
             </FlexItem>
           ))}
-          <AddButton
-            onClick={() =>
-              setBlocks(blocks.concat(new Block(100, Math.floor(Math.random() * 240) + 120)))
-            }
-            mode='ghost'
-            padding={[4, 4, 5]}
-            icon='add'
-          />
 
           <CanvasNav space={2}>
+            <Button
+              onClick={() =>
+                setBlocks(blocks.concat(new Block(150, Math.floor(Math.random() * 240) + 120)))
+              }
+              icon='add'
+              aria-label='add extra block'
+              mode='ghost'
+            />
             <Button
               onClick={() => setScale(scale + 0.2)}
               icon='expand'
