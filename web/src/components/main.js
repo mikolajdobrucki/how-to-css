@@ -255,7 +255,7 @@ const Main = props => {
             <FlexItem
               style={{
                 flexBasis: block.flexBasis * scale,
-                height:
+                minHeight:
                   flexDirection === 'row' || flexDirection === 'row-reverse'
                     ? block.size * scale
                     : 'auto',
