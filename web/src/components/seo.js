@@ -13,7 +13,6 @@ function SEO ({description, lang, meta, keywords, title}) {
       render={data => {
         const metaDescription = description || (data.site && data.site.description) || ''
         const siteTitle = (data.site && data.site.title) || ''
-        const siteAuthor = (data.site && data.site.author && data.site.author.name) || ''
         return (
           <Helmet
             htmlAttributes={{lang}}
@@ -38,19 +37,15 @@ function SEO ({description, lang, meta, keywords, title}) {
               },
               {
                 name: 'twitter:card',
-                content: 'summary'
-              },
-              {
-                name: 'twitter:image',
-                content: `https://www.howtocss.dev/${ogimage}`
-              },
-              {
-                name: 'og:image',
-                content: `https://www.howtocss.dev/${ogimage}`
+                content: 'summary_large_image'
               },
               {
                 name: 'twitter:creator',
-                content: siteAuthor
+                content: '@mikolajdobrucki'
+              },
+              {
+                name: 'twitter:image',
+                content: `https://www.howtocss.dev${ogimage}`
               },
               {
                 name: 'twitter:title',
@@ -59,6 +54,14 @@ function SEO ({description, lang, meta, keywords, title}) {
               {
                 name: 'twitter:description',
                 content: metaDescription
+              },
+              {
+                name: 'og:url',
+                content: `https:/www.howtocss.dev/`
+              },
+              {
+                name: 'og:image',
+                content: `https://www.howtocss.dev${ogimage}`
               }
             ]
               .concat(
