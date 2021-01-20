@@ -1,4 +1,4 @@
-# hottocss.dev – flexbox cheatsheet & playground
+# howtocss.dev – flexbox cheatsheet & playground
 
 An online tool to help you learn and experiment with CSS flexbox.
 
