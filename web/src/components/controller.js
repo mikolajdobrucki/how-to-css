@@ -22,6 +22,12 @@ const ControllerBlock = styled.label`
   align-items: center;
 `
 
+const ControllerInput = styled.input`
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
+`
+
 const Range = styled.input`
 width: 100%;
 margin: 30px 0;
@@ -62,13 +68,12 @@ const Controller = props => {
             {props.values.map(value => (
               <ControllerBlock key={value} active={props.state === value}>
                 <ControllerIcon icon={props.id + '-' + value} active={props.state === value} value={value} settings={props.settings} />
-                <input
+                <ControllerInput
                   type='radio'
                   name={props.id}
                   id={props.id}
                   checked={props.state === value}
                   onChange={() => props.onChange(value)}
-                  style={{appearance: 'none', position: 'absolute'}}
                 />
                 { typeof value !== 'number' ? (
                   <ControllerLabel muted={props.state !== value} size={1}>
