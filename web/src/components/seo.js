@@ -52,6 +52,10 @@ function SEO ({description, lang, meta, keywords, title}) {
                 content: title
               },
               {
+                name: 'twitter:site',
+                content: '@mikolajdobrucki'
+              },
+              {
                 name: 'twitter:description',
                 content: metaDescription
               },

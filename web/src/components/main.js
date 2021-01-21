@@ -375,7 +375,7 @@ flex-direction: ${flexDirection};`}
                           icon='comment'
                           text='Share on Twitter'
                           as='a'
-                          href='https://twitter.com/intent/tweet?text=Check%20out%20hottocss.dev%20%E2%80%93%20the%20best%20CSS%20flexbox%20cheatsheet%20and%20online%20playground%20by%20%40mikolajdobrucki%0D%0A%0D%0Ahttps%3A%2F%2Fwww.howtocss.dev'
+                          href='https://twitter.com/intent/tweet?text=Check%20out%20howtocss.dev%20%E2%80%93%20the%20best%20CSS%20flexbox%20cheatsheet%20and%20online%20playground%20by%20%40mikolajdobrucki%0D%0A%0D%0Ahttps%3A%2F%2Fwww.howtocss.dev'
                           target='_blank'
                         />
                         <Button
@@ -406,7 +406,7 @@ flex-direction: ${flexDirection};`}
               Sanity
             </a>{' '}
             &amp;{' '}
-            <a href='https://www.design.sanity.io' target='_blank'>
+            <a href='https://www.sanity.io/ui' target='_blank'>
               Sanity UI
             </a>
           </Text>
