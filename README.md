@@ -1,8 +1,8 @@
-# hottocss.dev – flexbox cheatsheet & playground
+# How to CSS – flexbox cheatsheet & playground
 
 An online tool to help you learn and experiment with CSS flexbox.
 
-Available under [howtocss.dev](https://www.howtocss.dev).
+Available under [how-to-css-mikolajdobrucki.vercel.app](https://how-to-css-mikolajdobrucki.vercel.app).
 
 ## Build with
 
